@@ -23,7 +23,7 @@ void write(){
 void nextColor(int k){
     int i=1;
     do{
-        x[k] = (x[k]+1)%(m+1);
+        x[k] = (x[k]+1)%(m+1); //Highest color that can be used
         if(x[k]==0)return;
         for(i=1;i<=n;i++)
             if(G[i][k]!=0 && x[k]==x[i])
