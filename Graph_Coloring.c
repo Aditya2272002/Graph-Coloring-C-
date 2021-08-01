@@ -26,7 +26,7 @@ void nextColor(int k){
         x[k] = (x[k]+1)%(m+1); //Highest color that can be used
         if(x[k]==0)return;
         for(i=1;i<=n;i++)
-            if(G[i][k]!=0 && x[k]==x[i])
+            if(G[i][k]!=0 && x[k]==x[i]) // G[i][k] : means nodes exist between i and k , x[k] == x[i] : means checking ajdacent nodes i and k have same color
                 break;
         if(i==n+1)
             return;
@@ -36,12 +36,12 @@ void nextColor(int k){
 void mcoloring(int k){
     for(int i=1;i<=n;i++){
         nextColor(k);
-        if(x[k]==0)
+        if(x[k]==0) // if Color can not be filled at kth location
             return;
-        if(k==n)
+        if(k==n) // if all nodes are coloured then print
             write();
         else
-            mcoloring(k+1);
+            mcoloring(k+1); // proceed to nexr node
     }
 }
 
